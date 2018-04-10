@@ -70,7 +70,7 @@
                             </li>
                             
                             <li>
-                                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="glyphicon glyphicon-tasks"></i> Empresa <i class="glyphicon glyphicon-menu-down"></i></a>
+                                <a href="{{route('enterprise.index')}}" data-toggle="collapse" data-target="#demo"><i class="glyphicon glyphicon-tasks"></i> Empresa <i class="glyphicon glyphicon-menu-down"></i></a>
                                 <ul id="demo" class="collapse">
                                     <li>
                                         <a href="#">Dropdown Item</a>

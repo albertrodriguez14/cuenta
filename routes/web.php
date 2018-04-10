@@ -18,3 +18,8 @@ Route::get('/index', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+
+Route::resource('/enterprise', 'Enterprise\EnterpriseController');
+
+Route::get('/enterprise/{id}/destroy','Enterprise\EnterpriseController@destroy')->name('enterprise.destroy');
