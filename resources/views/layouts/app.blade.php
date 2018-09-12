@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="{{asset('asset/css/sb-admin.css')}}" rel="stylesheet">
-    
+    @yield('styles')
     
 </head>
 <body>
@@ -66,35 +66,38 @@
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav side-nav">
                             <li>
-                                <a href="index.html"><i class="glyphicon glyphicon-th"></i> Dashboard</a>
+                                <a href="{{route('home')}}"><i class="glyphicon glyphicon-th"></i> Dashboard</a>
                             </li>
                             
                             <li>
-                                <a href="{{route('enterprise.index')}}" data-toggle="collapse" data-target="#demo"><i class="glyphicon glyphicon-tasks"></i> Empresa <i class="glyphicon glyphicon-menu-down"></i></a>
+                                <a href="#" data-toggle="collapse" data-target="#demo"><i class="glyphicon glyphicon-tasks"></i> Empresa <i class="glyphicon glyphicon-menu-down"></i></a>
                                 <ul id="demo" class="collapse">
                                     <li>
-                                        <a href="#">Dropdown Item</a>
+                                        <a href="{{route('enterprise.index')}}">crear empresa</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Dropdown Item</a>
-                                    </li>
+                                   
                                 </ul>
                             </li>
                             <li class="active">
-                                <a href="blank-page.html"><i class="glyphicon glyphicon-tasks"></i> Cuentas</a>
+                                <a href="{{route('acount.index')}}"><i class="glyphicon glyphicon-tasks"></i> Cuentas</a>
                             </li>
                            
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
-                </nav>
+              
                 @endguest
-               
-                  
-            </div>
+                </ul>
+                </div>
+                </div>
+            </nav>
             <!-- /#wrapper -->
-            @yield('content')
+            @yield('content') 
+            </div>
+          
     <!-- Scripts -->
     <script src="{{ asset('asset/js/app.js') }}"></script>
+     @yield('script')
+   
 </body>
 </html>

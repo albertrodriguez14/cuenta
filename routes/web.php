@@ -22,4 +22,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/enterprise', 'Enterprise\EnterpriseController');
 
+Route::resource('/acount', 'acount\AcountController');
+
+
 Route::get('/enterprise/{id}/destroy','Enterprise\EnterpriseController@destroy')->name('enterprise.destroy');
+

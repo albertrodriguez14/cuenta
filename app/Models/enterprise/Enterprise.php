@@ -11,7 +11,15 @@ class Enterprise extends Model
 
     protected $primarykey = 'id';
 
-    protected  $fillable = ['name','nit_enterprise',];
+    protected  $fillable = ['name','nit_enterprise'];
 
     
+  
+  public function acount()
+  {
+      return $this->hasMany(Acount::class);
+  }
+  
+
+
 }
