@@ -18,38 +18,62 @@
                 <div class="panel-heading">Cuenta</div>
 
       <div class="panel-body"> 
-               <form   action="{{route ('enterprise.store')}}"  method="POST" class="form-horizontal">
+               <form   action="{{route ('acount.store')}}"  method="POST" class="form-horizontal">
              {{ csrf_field() }}
+
+             <div class="form-group ">
+                <div class="col-md-1"><label for="amount">Ciudad</label></div>
+               <div class="col-md-4"> <input type="text" name="city" id="city"class="form-control" value="{{ old('city') }}"></div>
+                  </div>
+
 
           <div class="form-group ">
               <div class="col-md-1"><label  for="enterprise_id" >Empresa</label></div>
-              <div class="col-md-4"><select name="" id="" class="form-control col-md-4">
-                    <option value="0">selecione una empresa</option>     
+              <div class="col-md-4"><select name="enterprise_id" id="enterprise_id" class="form-control col-md-4">
+
+                    @foreach ($empresa->all() as $emp)
+                    <option value={{$emp->id}}  >{{$emp->name}}</option>
+                    @endforeach
+                       
+                    
+                    
                  </select>
                 </div>
                     
                  <div class="col-md-1"> <label for="user_id">user</label></div>
-                 <div class="col-md-4"> <input type="text"  class=" form-control " id="user_id" placeholder="nit" name="user_id" value="{{ old('nit_enterprise') }}"></div>
+                 <div class="col-md-4">
+                       {{-- @foreach ($user->all() as $us)
+                        <option value={{$us->id}}>{{$us->name}}</option>
+                        @endforeach --}}
+                     <input type="text"  class=" form-control " id="user_id" placeholder="nit" name="user_id" value="{{ old('nit_enterprise') }}"> 
+                    </div>
                 
         </div>             
                
               <div class="form-group ">
                   <div class="col-md-1"><label for="amount">valor</label></div>
                  <div class="col-md-4"> <input type="text" name="amount" id="amount"class="form-control" value="{{ old('amout') }}"></div>     
+                  
                  
 
                   <div class="col-md-1"> <label for="date">fecha</label>  </div>
                      <div id="sandbox-container" class=" col-md-4 input-group date" data-provide="datepicker" >
-                      <input type="text" name="date" id="" class="form-control">
+                      <input type="text" name="date" id="date" class="form-control">
                       <div class="input-group-addon  ">
                         <span class="glyphicon glyphicon-th"></span>
                   </div>
+                  </div> 
+                </div> 
+                  
+                  
+                      
 
-                  </div>       
-                               <br>
+                               
                 <div class="container-fluid">
-                       <div><label for="decription">descripcion</label></div>
-                       <textarea name="" id=""  rows="12" class="form-control rounded-0"></textarea>
+                       <div><label for="description">description
+                           </label></div>
+                       <textarea name="description" id="description"  rows="12" class="form-control rounded-0" value="{{ old('description') }}">
+                           </textarea>
 
                 </div>
                 
@@ -81,6 +105,7 @@
             $( document ).ready(function() {
                
                 $('#sandbox-container').datepicker({
+                    format: 'yy/mm/dd',
                     autoclose: true,
                     todayHighlight: true
                 });

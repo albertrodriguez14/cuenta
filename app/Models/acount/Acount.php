@@ -24,6 +24,11 @@ class Acount extends Model
             return $this->belongsTo(Enterprise::class);
         }
         
+
+        public function user(){
+            return $this->belongsTo(User::class);
+
+        }
     }
 
 

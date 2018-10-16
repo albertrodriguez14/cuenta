@@ -16,7 +16,7 @@ class EnterpriseController extends Controller
      */
     public function index()
     {
-       $enter= Enterprise::all();
+       $enter = Enterprise::all();
 
         return view('/enterprise/enterprise')->with(['enter'=> $enter]);
     }

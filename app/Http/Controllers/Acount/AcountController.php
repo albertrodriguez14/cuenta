@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Acount;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\acount\Acount;
 
 class AcountController extends Controller
 {
@@ -14,7 +15,9 @@ class AcountController extends Controller
      */
     public function index()
     {
-        return view ("acount/acount");
+        $empresa =  \App\Models\enterprise\Enterprise::all();
+        $user = \App\User::All();
+        return view ("/acount/acount")->with(['empresa' => $empresa,'user'=> $user]);
     }
 
     /**
@@ -35,7 +38,12 @@ class AcountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+    
+      
+     Acount::create($request->all());
+
+     return redirect()->route('acount.index');        
     }
 
     /**
